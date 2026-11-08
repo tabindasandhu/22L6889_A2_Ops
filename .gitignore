@@ -1,0 +1,15 @@
+@"
+# Python environment and caches
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets - never commit
+.env
+
+# MLflow local runs and trained model files (tracked elsewhere)
+mlruns/
+models/
+*.keras
+*.h5
+"@ | Set-Content .gitignore
