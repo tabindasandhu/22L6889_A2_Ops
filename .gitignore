@@ -13,3 +13,5 @@ models/
 *.keras
 *.h5
 "@ | Set-Content .gitignore
+mlflow.db
+loss_curve.png
