@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="card">
+  <p class="muted">{{ filename }}</p>
+  <h1 class="verdict {{ 'ai' if r.label == 'AI-generated' else 'real' }}">{{ r.label }}</h1>
+  <p>Confidence: <strong>{{ '%.1f' % (r.confidence * 100) }}%</strong></p>
+  <progress class="bar" max="100" value="{{ '%.0f' % (r.confidence * 100) }}"></progress>
+  <p class="muted small">P(AI) = {{ '%.3f' % r.p_ai }} · threshold {{ r.threshold }} ·
+     model {{ r.model_name }} v{{ r.model_version }} · {{ '%.0f' % r.latency_ms }} ms</p>
+  <div class="caveat">
+    <strong>Please note:</strong> this is a statistical estimate from a model trained on a small dataset
+    (about 1,000 images), not proof. It can be wrong, especially for edited photos, artwork, very small
+    images or newer AI generators. Do not use it alone to accuse anyone of faking an image.
+  </div>
+  <a class="button" href="{{ url_for('index') }}">Analyse another image</a>
+</section>
+{% endblock %}

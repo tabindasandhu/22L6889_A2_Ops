@@ -15,3 +15,8 @@ models/
 "@ | Set-Content .gitignore
 mlflow.db
 loss_curve.png
+visionguard.db
+test_uploads/
+test_uploads/
+test_uploads/
+test_uploads/
